@@ -23,7 +23,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "io.github.stoyicker.annoyodroid.sample"
+        applicationId "annoyodroid.sample"
         minSdkVersion 11
         targetSdkVersion 23
         versionCode 1
