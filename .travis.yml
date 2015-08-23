@@ -23,4 +23,4 @@ before_install:
     - chmod +x gradlew
 # Mark Gradle as executable ##END##
 script:
-    - ./gradlew clean build connectedCheck
+    - ./gradlew clean build testDebugUnitTest
