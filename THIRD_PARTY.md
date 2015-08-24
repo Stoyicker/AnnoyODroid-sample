@@ -1,3 +1,13 @@
+AnnoyODroid
+===========
+AnnoyODroid (c) by Jorge Antonio Diaz-Benito Soriano
+
+AnnoyODroid is licensed under a
+Creative Commons Attribution 4.0 International License.
+
+You should have received a copy of the license along with this
+work. If not, see http://creativecommons.org/licenses/by/4.0/.
+
 Android Support Library v7 appcompat
 ====================================
 [https://developer.android.com/tools/support-library/features.html#v7-appcompat](https://developer.android.com/tools/support-library/features.html#v7-appcompat)
