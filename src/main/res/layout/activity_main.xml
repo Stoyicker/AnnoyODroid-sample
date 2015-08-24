@@ -25,6 +25,7 @@
             android:layout_height="match_parent"
             android:ellipsize="none"
             android:hint="@string/api_key"
+            android:imeOptions="flagNoExtractUi"
             android:inputType="text"
             android:maxLines="1"/>
     </android.support.design.widget.TextInputLayout>
