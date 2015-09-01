@@ -21,8 +21,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+import retrofit.Response;
 import rx.Observable;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
@@ -86,16 +85,16 @@ public class MainActivity extends AppCompatActivity {
         final Callback<Object> genericCallback = new Callback<Object>() {
 
             @Override
-            public void success(final Object o, final Response response) {
-                MainActivity.this.setText((o != null ? o.toString() : "Empty response received"));
+            public void onResponse(final Response<Object> response) {
+                MainActivity.this.setText((response != null ? response.body().toString() : "Empty response received"));
                 MainActivity.this.setResponseVisibility(true);
             }
 
             @Override
-            public void failure(final RetrofitError error) {
-                final Response response = error.getResponse();
-                MainActivity.this.setText(response.getStatus() + ":" + response.getReason());
+            public void onFailure(final Throwable t) {
+                MainActivity.this.setText(t.getMessage() + ":" + t.getCause());
                 MainActivity.this.setResponseVisibility(true);
+
             }
         };
         final int position;
