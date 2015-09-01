@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_below="@id/spinner_methods"
-        android:text="@string/rxandroid_request"
+        android:text="@string/rxjava_request"
         app:layout_heightPercent="15%"
         app:layout_marginBottomPercent="2%"
         app:layout_marginEndPercent="5%"
