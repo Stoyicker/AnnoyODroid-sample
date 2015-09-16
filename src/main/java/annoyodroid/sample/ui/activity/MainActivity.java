@@ -1,12 +1,18 @@
 package annoyodroid.sample.ui.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -17,6 +23,7 @@ import java.util.concurrent.Executors;
 
 import annoyodroid.sample.R;
 import butterknife.Bind;
+import butterknife.BindString;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
@@ -60,6 +67,33 @@ public class MainActivity extends AppCompatActivity {
     TextView mApiKeyView;
 
     private SharedPreferences mSharedPreferences;
+
+    @BindString(R.string.repo_url)
+    String mRepoUrl;
+
+    @Override
+    public boolean onCreateOptionsMenu(@NonNull final Menu menu) {
+        final MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_activity_demo, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull final MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_github:
+                openRepo();
+                return Boolean.TRUE;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void openRepo() {
+        final Intent ghIntent = new Intent(Intent.ACTION_VIEW);
+        ghIntent.setData(Uri.parse(mRepoUrl));
+        startActivity(ghIntent);
+    }
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
