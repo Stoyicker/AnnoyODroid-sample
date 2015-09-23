@@ -270,6 +270,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void run() {
+                mResponseField.scrollTo(0, 0);
                 mResponseField.setText(mText);
             }
         }.init(text));
