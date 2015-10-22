@@ -29,6 +29,7 @@ import butterknife.OnClick;
 import butterknife.OnItemSelected;
 import retrofit.Callback;
 import retrofit.Response;
+import retrofit.Retrofit;
 import rx.Observable;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
@@ -119,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         final Callback<Object> genericCallback = new Callback<Object>() {
 
             @Override
-            public void onResponse(final Response<Object> response) {
+            public void onResponse(final Response<Object> response, final Retrofit retrofit) {
                 MainActivity.this.setText((response != null ? response.body().toString() : "Empty response received"));
                 MainActivity.this.setResponseVisibility(true);
             }
